@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Stock Owned</th>
+        <th>Number of Shares</th>
+        <th>Current Price</th>
+        <th>Total Value</th>
+        <th>Transaction</th>
+        <th>Cash</th>
+        <th>Total Balance</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for result in results %}
+    <tr>
+
+        <td>{{result.stock}}</td>
+        <td>{{result.amount}}</td>
+        <td>{{result.price}}</td>
+        <td>{{result.totalValue}}</td>
+        <td><a href="/buy?stock={{result.stock}}">Buy</a> <b>/</b> <a href="/sell?stock={{result.stock}}">Sell</a></td>
+{% endfor %}
+    </tr>
+    <tr>
+
+        <td colspan = "6" style="text-align:right;">{{cash}}</td>
+        <td>{{total}}</td>
+    </tr>
+    </tbody>
+
+</table>
+{% endblock %}

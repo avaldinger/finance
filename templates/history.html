@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Stock</th>
+        <th>Number of Shares</th>
+        <th>Transaction Price</th>
+        <th>Time of transaction</th>
+        <th>Transaction Type</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for result in results %}
+    <tr>
+
+        <td>{{result.stock}}</td>
+        <td>{{result.amount}}</td>
+        <td>{{result.price}}</td>
+        <td>{{result.timestamp}}</td>
+        <td>{{result.transaction_type}}</td>
+    {% endfor %}
+    </tr>
+    </tbody>
+
+</table>
+{% endblock %}

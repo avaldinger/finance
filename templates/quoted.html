@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Qouted
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th>Stock Name</th>
+        <th>Stock Price</th>
+        <th>Stock Symbol</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{response.name}}</td>
+        <td>{{response.price}}</td>
+        <td>{{response.symbol}}</td>
+    </th>
+    </tbody>
+</table>
+{% endblock %}

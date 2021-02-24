@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="symbol">
+        <option id="option" selected>Stocks owned</option>
+        <script>
+                const queryString = window.location.search;
+                var stock = queryString.substring(7);
+                // alert(stock);
+            if (stock.length > 0) {
+               $('#option').replaceWith($("<option />").val(stock).text(stock));
+            }
+        </script>
+        {% for stock in stocks %}
+        <option value="{{stock.stock}}">{{stock.stock}}</option>
+        {% endfor %}
+        </select>
+        <br>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Number of shares" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
